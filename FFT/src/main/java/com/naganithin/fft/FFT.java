@@ -2,7 +2,8 @@ package com.naganithin.fft;
 
 public class FFT {
 
-    private int n, m;
+    private final int n;
+    private final int m;
 
     // Lookup tables. Only need to recompute when size of FFT changes.
     private double[] cos;
