@@ -1,7 +1,7 @@
-# ContactsMap [![Build Status](https://travis-ci.org/nithinmanne/ContactsMap.svg?branch=master)](https://travis-ci.org/nithinmanne/ContactsMap)
-This repository contains the source code for the showing contacts on Map (Part 1).
+# ContactsMap [![Build Status](https://travis-ci.org/nithinmanne/SnoreSensor.svg?branch=master)](https://travis-ci.org/nithinmanne/SnoreSensor)
+This repository contains the source code for the Snore Sensor.
 
-This app is created for an assignment of Programmable and Embedded Systems.
+This app is created for the second test of Programmable and Embedded Systems.
 
 This app was built using [Android Studio 3.0](https://developer.android.com/studio/preview/index.html) and Gradle 4.1
 
@@ -16,11 +16,6 @@ Ph No. +91-7076607344
 
 
 <img src="Screenshots/3.png" width="40%">
-
-
-**Phone Contacts App**
-
-<img src="Screenshots/4.png" width="40%">
 
 ## Author
 
