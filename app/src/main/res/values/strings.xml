@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SnoreSensor</string>
+    <string name="start">Start Recording</string>
+    <string name="stop">Stop Recording</string>
+    <string name="yes">Snoring</string>
+    <string name="no">Not Snoring</string>
 </resources>
