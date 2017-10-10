@@ -1,4 +1,4 @@
-# ContactsMap [![Build Status](https://travis-ci.org/nithinmanne/SnoreSensor.svg?branch=master)](https://travis-ci.org/nithinmanne/SnoreSensor)
+# SnoreSensor [![Build Status](https://travis-ci.org/nithinmanne/SnoreSensor.svg?branch=master)](https://travis-ci.org/nithinmanne/SnoreSensor)
 This repository contains the source code for the Snore Sensor.
 
 This app is created for the second test of Programmable and Embedded Systems.
