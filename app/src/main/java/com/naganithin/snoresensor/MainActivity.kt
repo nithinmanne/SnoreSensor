@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private val requestCodeP = 0
     private var recording = false
-    private val SAMPLE_RATE = 44100
+    private val mSAMPLERATE = 44100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,19 +33,19 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, permissions, requestCodeP)
     }
 
-    fun startRec() {
+    private fun startRec() {
         Thread(Runnable {
             android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO)
 
-            var bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE,
+            var bufferSize = AudioRecord.getMinBufferSize(mSAMPLERATE,
                     AudioFormat.CHANNEL_IN_MONO,
                     AudioFormat.ENCODING_PCM_16BIT)
             if (bufferSize == AudioRecord.ERROR || bufferSize == AudioRecord.ERROR_BAD_VALUE) {
-                bufferSize = SAMPLE_RATE * 2
+                bufferSize = mSAMPLERATE * 2
             }
 
             val record = AudioRecord(MediaRecorder.AudioSource.DEFAULT,
-                    SAMPLE_RATE,
+                    mSAMPLERATE,
                     AudioFormat.CHANNEL_IN_MONO,
                     AudioFormat.ENCODING_PCM_16BIT,
                     bufferSize)
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 val x = audioBuffer.map { it.toDouble() }.toDoubleArray()
 
                 fft.fft(x, y)
-                val j = PES(x)
+                val j = mPES(x)
 
                 if (j==1) {
                     snore++
@@ -93,14 +93,14 @@ class MainActivity : AppCompatActivity() {
         }).start()
     }
 
-    fun PES(a: DoubleArray): Int {
-        val E_L = (0..51).sumByDouble { a[it] * a[it] }
-        val E_H = (53..511).sumByDouble { a[it] * a[it] }
-        val pes = E_L / (E_L + E_H)
-        if (pes < 0.65)
-            return 1
+    private fun mPES(a: DoubleArray): Int {
+        val mEL = (0..51).sumByDouble { a[it] * a[it] }
+        val mEH = (53..511).sumByDouble { a[it] * a[it] }
+        val pes = mEL / (mEL + mEH)
+        return if (pes < 0.65)
+            1
         else
-            return 0
+            0
     }
 
     fun record(v: View) {
